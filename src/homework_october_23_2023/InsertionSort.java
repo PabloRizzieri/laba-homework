@@ -20,7 +20,7 @@ public class InsertionSort {
             arr[i+1] = key;
         }
         return arr;
-    };
+    }
 }
 
 
