@@ -1,16 +1,15 @@
-package homework_october_26_2023;
+package main.homework_october_26_2023;
 
-public class CleaningEmployee {
+public class DepositEmployee {
     private Integer salary;
     private String name;
 
-    public CleaningEmployee(Integer salary, String name){
-        this.name = name;
+    public DepositEmployee(Integer salary, String name){
         this.salary = salary;
+        this.name = name;
     }
 
-    //Getter and setter of the salary
-
+    // Getter and Setter of the salary
     public Integer getSalary() {return salary;}
     public void setSalary(Integer salary) {this.salary = salary;}
 

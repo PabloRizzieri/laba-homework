@@ -1,4 +1,4 @@
-package homework_october_23_2023;
+package main.homework_october_23_2023;
 
 public class UserInfo {
     public static void main(String[] args) {

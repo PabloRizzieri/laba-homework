@@ -1,4 +1,4 @@
-package homework_october_26_2023;
+package main.homework_october_26_2023;
 
 public class RegisterEmployee{
     private Integer salary;
