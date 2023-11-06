@@ -9,10 +9,9 @@ The projects are structured in the following format:
 ```
 - src
     - main
-        - homework_DD-MM-YY (Date of the homework)
 ```
 
-Each homework assignment is stored in its corresponding package named after the date and topic. Inside each package, you can find the Java files for that specific homework assignment.
+Each homework assignment will be described on the README.md located on the main package also on each commit will be commented with the date of the task
 
 ## Homework Overview
 
@@ -21,3 +20,6 @@ Each homework assignment is stored in its corresponding package named after the 
 
 - **Homework 2:**
     - Description of the second homework assignment.
+
+
+
