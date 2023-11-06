@@ -1,6 +1,8 @@
 package main.homework_november_02_2023.staff;
 
-public class RegisterEmployee extends Person {
+import main.homework_november_02_2023.interfaces.RegisterTasks;
+
+public class RegisterEmployee extends Person implements RegisterTasks {
     // Default constructor
     public RegisterEmployee(){}
 
@@ -16,5 +18,11 @@ public class RegisterEmployee extends Person {
     @Override
     public void getFullName() {
         System.out.println(firstName + " " + lastName);
+    }
+
+    // Using the interface
+    @Override
+    public void registerSales(){
+        System.out.println("attending the register");
     }
 }

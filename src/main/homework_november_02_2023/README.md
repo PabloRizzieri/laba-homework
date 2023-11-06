@@ -22,3 +22,10 @@ Requirements:
 - Create and override at least one abstract method.
 - Use protected modifier at least 5 times
 - Override methods from class Object (toString(), hashcode(), equals()) for at least 3 classes from the hierarchy.
+
+# November 02 - Interfaces
+
+- Add 5 interfaces to the existing hierarchy.
+- Use polymorphism with the abstract class and interface from the hierarchy.
+- Create final class, method, variable.
+- Create a static block, method, variable.

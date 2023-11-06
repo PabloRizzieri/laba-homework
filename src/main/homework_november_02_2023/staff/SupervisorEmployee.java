@@ -1,6 +1,8 @@
 package main.homework_november_02_2023.staff;
 
-public class SupervisorEmployee extends Person {
+import main.homework_november_02_2023.interfaces.SupervisorTasks;
+
+public class SupervisorEmployee extends Person implements SupervisorTasks {
     // Default constructor
     public SupervisorEmployee(){}
 
@@ -15,5 +17,11 @@ public class SupervisorEmployee extends Person {
     @Override
     void getFullName() {
         System.out.println(firstName + " " + lastName);
+    }
+
+    // Using the interface
+    @Override
+    public void superviseTeam(){
+        System.out.println("Supervising team");
     }
 }

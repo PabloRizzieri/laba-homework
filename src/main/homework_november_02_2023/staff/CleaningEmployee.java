@@ -1,6 +1,8 @@
 package main.homework_november_02_2023.staff;
 
-public class CleaningEmployee extends Person {
+import main.homework_november_02_2023.interfaces.CleaningTasks;
+
+public class CleaningEmployee extends Person implements CleaningTasks {
     // Default constructor
     public CleaningEmployee(){}
 
@@ -16,5 +18,11 @@ public class CleaningEmployee extends Person {
     @Override
     void getFullName() {
         System.out.println(firstName + " " + lastName);
+    }
+
+    // Using the interface
+    @Override
+    public void cleanWorkspace(){
+        System.out.println("Cleaning");
     }
 }

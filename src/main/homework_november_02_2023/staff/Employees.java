@@ -1,8 +1,9 @@
 package main.homework_november_02_2023.staff;
 
 import main.homework_november_02_2023.Supermarket;
+import main.homework_november_02_2023.interfaces.Workspace;
 
-public class Employees extends Supermarket {
+public class Employees extends Supermarket implements Workspace {
     private CleaningEmployee cleaningEmployee;
     private DepositEmployee depositEmployee;
     private RegisterEmployee registerEmployee;
@@ -61,6 +62,12 @@ public class Employees extends Supermarket {
     //Getter and Setter of the Supervisor
     public SupervisorEmployee getSupervisorEmployee() {return supervisorEmployee;}
     public void setSupervisorEmployee(SupervisorEmployee supervisorEmployee) {this.supervisorEmployee = supervisorEmployee;}
+
+    //Using the interface
+    @Override
+    public void startOnTime(){
+        System.out.println("All employees arrive, opening the supermarket");
+    }
 
 
 }

@@ -1,6 +1,8 @@
 package main.homework_november_02_2023.staff;
 
-public class DepositEmployee extends Person {
+import main.homework_november_02_2023.interfaces.DepositTasks;
+
+public class DepositEmployee extends Person implements DepositTasks {
 
     // Default constructor
     public DepositEmployee(){}
@@ -16,6 +18,12 @@ public class DepositEmployee extends Person {
     @Override
     void getFullName() {
         System.out.println(firstName + " " + lastName);
+    }
+
+    // Using the interface
+    @Override
+    public void manageMaterials(){
+        System.out.println("Managing merchandise");
     }
 
 
