@@ -53,5 +53,11 @@ public class Main {
         System.out.println(appleProduct1.toString());
         System.out.println(actualCombo.toString());
 
+
+        // Utilizing the new methods of the final Provider class
+        Provider provider = new Provider();
+        provider.deliverMerchandise();
+        provider.deliverSchedule();
+
     }
 }
