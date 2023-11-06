@@ -1,20 +1,20 @@
 package main.homework_october_26_2023;
 
-public class CleaningEmployee {
-    private Integer salary;
-    private String name;
+public class CleaningEmployee extends Person{
+    // Default constructor
+    public CleaningEmployee(){}
 
-    public CleaningEmployee(Integer salary, String name){
-        this.name = name;
-        this.salary = salary;
+    // Constructor using the parameters of the father class
+    public CleaningEmployee(String firstName, String lastName, Integer personAge){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.personAge = personAge;
     }
 
-    //Getter and setter of the salary
 
-    public Integer getSalary() {return salary;}
-    public void setSalary(Integer salary) {this.salary = salary;}
-
-    //Getter and setter of name
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    // Overriding an abstract method
+    @Override
+    void getFullName() {
+        System.out.println(firstName + " " + lastName);
+    }
 }

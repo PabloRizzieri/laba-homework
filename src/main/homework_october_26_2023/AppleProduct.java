@@ -1,16 +1,24 @@
 package main.homework_october_26_2023;
 
-public class AppleProduct {
-    private String name;
+public class AppleProduct extends Product {
+    //Default constructor
+    public AppleProduct(){};
 
-    //Constructor
-    public AppleProduct(String name){
-        this.name = name;
+    //New constructor using the inheritance to access the protected fields of Product
+    public AppleProduct (String nameProduct, Integer productPrice, Integer productID, String productBranch, Boolean hasDiscount){
+        this.nameProduct  = nameProduct;
+        this.productPrice = productPrice;
+        this.productID = productID;
+        this.productBranch = productBranch;
+        this.hasDiscount = hasDiscount;
     }
 
-    // Getter and Setter for the price
-    public String getName() {return name;}
 
-    public void setName(String name) {this.name = name;}
+    // Overriding an abstract method
+    @Override
+    void printProductInfo(){
+        System.out.println("This product is " + nameProduct);
+        System.out.println("The price of the product is " + productPrice);
+    }
 
 }

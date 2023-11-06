@@ -10,10 +10,10 @@ public class Employees extends Supermarket{
     //Default constructor
     public Employees(){
         this.employeeWorkingDays = "Default";
-        this.cleaningEmployee = new CleaningEmployee(0, "Default");
-        this.supervisorEmployee = new SupervisorEmployee(0, "Default");
-        this.depositEmployee = new DepositEmployee(0 , "Default");
-        this.registerEmployee = new RegisterEmployee(0 , "Default");
+        this.cleaningEmployee = new CleaningEmployee("Default", "Default", 0);
+        this.supervisorEmployee = new SupervisorEmployee("Default", "Default", 0);
+        this.depositEmployee = new DepositEmployee("Default", "Default", 0);
+        this.registerEmployee = new RegisterEmployee("Default", "Default", 0);
     }
 
 
@@ -31,7 +31,7 @@ public class Employees extends Supermarket{
     public void printInfo(){
         super.printInfo();
         // Info about the staff of the supermarket
-        System.out.println("The actual staff is " + supervisorEmployee.getName() + " " + registerEmployee.getName() + " " + depositEmployee.getName() + " " + cleaningEmployee.getName());
+        System.out.println("The actual staff is " + supervisorEmployee.getFirstName() + " " + registerEmployee.getFirstName() + " " + depositEmployee.getFirstName() + " " + cleaningEmployee.getFirstName());
     }
 
 

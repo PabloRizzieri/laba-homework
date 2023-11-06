@@ -10,3 +10,15 @@ This homework assignment involves creating a class hierarchy based on a topic pr
 - Creation of a separate class with main() for object instantiation
 
 The project aims to demonstrate understanding and proficiency in building complex class hierarchies, encapsulation, and object-oriented programming principles.
+
+
+# October 31 - Polymorphism and Abstraction
+
+Extended your previous homework with next features:
+
+Requirements:
+
+- Use polymorphism with at least one abstract class.
+- Create and override at least one abstract method.
+- Use protected modifier at least 5 times
+- Override methods from class Object (toString(), hashcode(), equals()) for at least 3 classes from the hierarchy.

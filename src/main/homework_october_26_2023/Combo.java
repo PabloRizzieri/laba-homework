@@ -1,5 +1,7 @@
 package main.homework_october_26_2023;
 
+import java.util.Objects;
+
 public class Combo extends Supermarket{
 
 
@@ -14,10 +16,10 @@ public class Combo extends Supermarket{
     public Combo(){
         this.comboID = 0;
         this.comboName = "Default";
-        this.cerealProduct = new CerealProduct("Default");
-        this.cleaningProduct = new CleaningProduct("Default");
-        this.appleProduct = new AppleProduct("Default");
-        this.meatProduct = new MeatProduct("Default");
+        this.cerealProduct = new CerealProduct("Default", 0, 0, "Default", null);
+        this.cleaningProduct = new CleaningProduct("Default", 0, 0, "Default", null);
+        this.appleProduct = new AppleProduct("Default", 0, 0, "Default", null);
+        this.meatProduct = new MeatProduct("Default", 0, 0, "Default", null);
     }
 
     // Constructor for the class
@@ -35,7 +37,7 @@ public class Combo extends Supermarket{
     public void printInfo(){
         super.printInfo();
         //Additional info about the combo
-        System.out.println("This combo has: " + appleProduct.getName() + " " + cleaningProduct.getName() + " " + meatProduct.getName() + " " + cerealProduct.getName());
+        System.out.println("This combo has: " + appleProduct.getNameProduct() + " " + cleaningProduct.getNameProduct() + " " + meatProduct.getNameProduct() + " " + cerealProduct.getNameProduct());
     }
 
     // Getter and setter of productID
@@ -67,8 +69,27 @@ public class Combo extends Supermarket{
     public void setCerealProduct(CerealProduct cerealProduct) {this.cerealProduct = cerealProduct;}
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Combo combo)) return false;
+        return Objects.equals(getAppleProduct(), combo.getAppleProduct()) && Objects.equals(getCleaningProduct(), combo.getCleaningProduct()) && Objects.equals(getMeatProduct(), combo.getMeatProduct()) && Objects.equals(getCerealProduct(), combo.getCerealProduct()) && Objects.equals(getComboID(), combo.getComboID()) && Objects.equals(getComboName(), combo.getComboName());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getAppleProduct(), getCleaningProduct(), getMeatProduct(), getCerealProduct(), getComboID(), getComboName());
+    }
 
-
-
+    @Override
+    public String toString() {
+        return "Combo{" +
+                "appleProduct=" + appleProduct +
+                ", cleaningProduct=" + cleaningProduct +
+                ", meatProduct=" + meatProduct +
+                ", cerealProduct=" + cerealProduct +
+                ", comboID=" + comboID +
+                ", comboName='" + comboName + '\'' +
+                '}';
+    }
 }

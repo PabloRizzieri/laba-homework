@@ -1,13 +1,15 @@
 package main.homework_october_26_2023;
 
-public class MeatProduct {
-    private String name;
+public class MeatProduct extends Product {
+    //Default constructor
+    public MeatProduct(){};
 
-    public MeatProduct(String name){
-        this.name = name;
+    //New constructor using the inheritance to access the protected fields of Product
+    public MeatProduct (String nameProduct, Integer productPrice, Integer productID, String productBranch, Boolean hasDiscount){
+        this.nameProduct  = nameProduct;
+        this.productPrice = productPrice;
+        this.productID = productID;
+        this.productBranch = productBranch;
+        this.hasDiscount = hasDiscount;
     }
-
-    //Getter and setter for the price
-    public void setName(String name){ this.name = name; }
-    public String getName(){return name;}
 }
