@@ -9,6 +9,8 @@ The projects are structured in the following format:
 ```
 - src
     - main
+      - java
+      - resources
 ```
 
 Each homework assignment will be described on the README.md located on the main package also on each commit will be commented with the date of the task

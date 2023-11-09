@@ -29,3 +29,10 @@ Requirements:
 - Use polymorphism with the abstract class and interface from the hierarchy.
 - Create final class, method, variable.
 - Create a static block, method, variable.
+
+# November 06 - Exceptions and Logger
+
+- Create 5 custom exceptions
+- Handle exceptions in 2 ways
+- Use try-catch with resources
+- Log messages to the console, file.
