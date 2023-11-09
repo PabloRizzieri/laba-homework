@@ -1,9 +1,10 @@
 package main.staff;
 
 import main.Supermarket;
-import main.interfaces.Workspace;
+import main.interfaces.Priceable;
+import main.interfaces.Printeable;
 
-public class Employees extends Supermarket implements Workspace {
+public class Employees extends Supermarket implements Printeable {
     private CleaningEmployee cleaningEmployee;
     private DepositEmployee depositEmployee;
     private RegisterEmployee registerEmployee;
@@ -22,7 +23,6 @@ public class Employees extends Supermarket implements Workspace {
 
     //Constructor for the class
     public Employees(String employeeWorkingDays, String name, String location, CleaningEmployee cleaningEmployee, DepositEmployee depositEmployee, RegisterEmployee registerEmployee, SupervisorEmployee supervisorEmployee){
-        super(name, location);
         this.employeeWorkingDays = employeeWorkingDays;
         this.cleaningEmployee = cleaningEmployee;
         this.registerEmployee = registerEmployee;
@@ -63,11 +63,25 @@ public class Employees extends Supermarket implements Workspace {
     public SupervisorEmployee getSupervisorEmployee() {return supervisorEmployee;}
     public void setSupervisorEmployee(SupervisorEmployee supervisorEmployee) {this.supervisorEmployee = supervisorEmployee;}
 
-    //Using the interface
+
     @Override
-    public void startOnTime(){
-        System.out.println("All employees arrive, opening the supermarket");
+    public void printDetails() {
+        String staff = "The employees are:\n" +
+                "Cleaning : " + cleaningEmployee.getFirstName() + "\n" +
+                "Register : " + registerEmployee.getFirstName() + "\n" +
+                "Deposit : " + depositEmployee.getFirstName() + "\n" +
+                "Supervisor: " + supervisorEmployee.getFirstName();
+        System.out.println(staff);
     }
 
-
+    @Override
+    public String toString() {
+        return "Employees{" + '\n' +
+                "Cleaning: " + cleaningEmployee + '\n' +
+                "Deposit: " + depositEmployee + '\n' +
+                "Register: " + registerEmployee + '\n' +
+                "Supervisor: " + supervisorEmployee + '\n' +
+                "And the working days are: " + employeeWorkingDays +
+                '}';
+    }
 }
