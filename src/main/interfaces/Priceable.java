@@ -1,5 +1,7 @@
 package main.interfaces;
 
 public interface Priceable {
-    void isPriceable();
+
+    int getPrice();
+    boolean isPriceable();
 }
