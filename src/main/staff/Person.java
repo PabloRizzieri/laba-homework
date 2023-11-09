@@ -1,5 +1,8 @@
 package main.staff;
 
+import main.exceptions.InvalidPersonNameException;
+import main.exceptions.NoAgeException;
+
 import java.util.Objects;
 
 public abstract class Person {
@@ -59,5 +62,19 @@ public abstract class Person {
                 ", personAge=" + personAge +
                 ", lastName='" + lastName + '\'' +
                 '}';
+    }
+
+    public void checkPersonAge() throws NoAgeException{
+        if (personAge < 0){
+            throw new NoAgeException("The person has an invalid age");
+        }
+        System.out.println("The person has the age: " + personAge);
+    }
+
+    public void checkPersonName() throws InvalidPersonNameException{
+        if (firstName == null || lastName == null){
+            throw new InvalidPersonNameException("The person has an invalid name it doesn't have first or last name");
+        }
+        System.out.println("The person has a valid name");
     }
 }

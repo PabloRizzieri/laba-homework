@@ -1,5 +1,9 @@
 package main.products;
 
+import main.exceptions.InvalidBranchException;
+import main.exceptions.InvalidIDException;
+import main.exceptions.NoPriceException;
+
 import java.util.Objects;
 
 public abstract class Product {
@@ -85,5 +89,26 @@ public abstract class Product {
                 ", hasDiscount=" + hasDiscount +
                 ", nameProduct='" + nameProduct + '\'' +
                 '}';
+    }
+
+    public void validateProductID()throws InvalidIDException {
+        if (productID < 0){
+            throw new InvalidIDException("Invalid product ID");
+        }
+        System.out.println("Product ID valid");
+    }
+
+    public void validatePrice() throws NoPriceException{
+        if (productPrice <= 0){
+            throw new NoPriceException("The product has no price");
+        }
+        System.out.println("The product has a valid price");
+    }
+
+    public void validateBranch() throws InvalidBranchException{
+        if (productBranch == null){
+            throw new InvalidBranchException("Invalid branch");
+        }
+        System.out.println("The product exist on a valid branch");
     }
 }
