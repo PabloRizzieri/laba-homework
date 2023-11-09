@@ -14,6 +14,7 @@ public abstract class Product {
     protected String productBranch;
     protected Boolean hasDiscount;
     protected String nameProduct;
+    protected int stock;
 
     public String getNameProduct() {
         return nameProduct;
@@ -55,13 +56,24 @@ public abstract class Product {
         this.hasDiscount = hasDiscount;
     }
 
+    public int getStock() {
+        return stock;
+    }
 
-    public Product(){
-        nameProduct = "Default";
-        productBranch = "Default";
-        productID = 0;
-        productPrice = 0;
-        hasDiscount = null;
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+
+    public Product(){}
+
+    public Product(String nameProduct, String productBranch, Integer productID, Integer productPrice, Boolean hasDiscount, Integer stock){
+        this.nameProduct = nameProduct;
+        this.productBranch = productBranch;
+        this.productID = productID;
+        this.productPrice = productPrice;
+        this.hasDiscount = hasDiscount;
+        this.stock = stock;
     }
 
     void printProductInfo(){};
@@ -83,11 +95,12 @@ public abstract class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "productPrice=" + productPrice +
-                ", productID=" + productID +
-                ", productBranch='" + productBranch + '\'' +
-                ", hasDiscount=" + hasDiscount +
-                ", nameProduct='" + nameProduct + '\'' +
+                "productPrice:" + productPrice + " - " +
+                "productID:" + productID + " - " +
+                "productBranch:" + productBranch + " - " +
+                "hasDiscount:" + hasDiscount + " - " +
+                "nameProduct:'" + nameProduct + "'" + " - " +
+                "Stock: " + stock +
                 '}';
     }
 
