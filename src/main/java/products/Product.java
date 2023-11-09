@@ -104,6 +104,20 @@ public abstract class Product {
                 '}';
     }
 
+
+
+
+    @Override
+    public boolean isStockeable(){
+        return stock > 0;
+    }
+
+    @Override
+    public boolean isPriceable(){
+        return isStockeable();
+    }
+
+
     public void validateProductID()throws InvalidIDException {
         if (productID < 0){
             throw new InvalidIDException("Invalid product ID");
