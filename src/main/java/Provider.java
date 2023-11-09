@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public final class Provider {
+    private static final Logger LOGGER = LogManager.getLogger(Provider.class);
 
     // Final variable
     private final String providerName = "Coca Cola";
@@ -17,14 +18,14 @@ public final class Provider {
 
 
     static {
-        System.out.println("Merchandise arriving");
+        LOGGER.info("Merchandise arriving");
     }
 
     public final void deliverMerchandise(){
-        System.out.println("Merchandise delivered");
+        LOGGER.info("Merchandise delivered");
     }
 
     public static void deliverSchedule(){
-        System.out.println("The merchandise will be delivered at " + deliverDay);
+        LOGGER.info("The merchandise will be delivered at " + deliverDay);
     }
 }

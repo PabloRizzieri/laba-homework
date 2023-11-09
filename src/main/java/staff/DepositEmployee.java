@@ -1,9 +1,11 @@
 package main.java.staff;
 
-import main.interfaces.Printeable;
-import main.interfaces.Stockeable;
+import main.java.interfaces.Printeable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class DepositEmployee extends Person implements Printeable {
+    private static final Logger LOGGER = LogManager.getLogger(DepositEmployee.class);
 
     // Default constructor
     public DepositEmployee(){}
@@ -18,13 +20,13 @@ public class DepositEmployee extends Person implements Printeable {
     // Overriding an abstract method
     @Override
     void getFullName() {
-        System.out.println(firstName + " " + lastName);
+        LOGGER.info(firstName + " " + lastName);
     }
 
     // Using the interface
     @Override
     public void printDetails(){
-        System.out.println("Name: " + firstName + "\n" + "Last name: " + lastName + "\n" + "Age: " + personAge);
+        LOGGER.info("Name: " + firstName + "\n" + "Last name: " + lastName + "\n" + "Age: " + personAge);
     }
 
 

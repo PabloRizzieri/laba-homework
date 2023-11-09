@@ -1,12 +1,18 @@
 package main.java.products;
 
-import main.exceptions.InvalidBranchException;
-import main.exceptions.InvalidIDException;
-import main.exceptions.NoPriceException;
+import main.java.exceptions.InvalidBranchException;
+import main.java.exceptions.InvalidIDException;
+import main.java.exceptions.NoPriceException;
+import main.java.interfaces.Priceable;
+import main.java.interfaces.Stockeable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
-public abstract class Product {
+public abstract class Product implements Stockeable, Priceable {
+
+    private static final Logger LOGGER = LogManager.getLogger(Product.class);
 
 
     protected Integer productPrice;
@@ -122,20 +128,24 @@ public abstract class Product {
         if (productID < 0){
             throw new InvalidIDException("Invalid product ID");
         }
-        System.out.println("Product ID valid");
+        LOGGER.info("Product ID valid");
     }
 
     public void validatePrice() throws NoPriceException{
         if (productPrice <= 0){
             throw new NoPriceException("The product has no price");
+        } else if (stock <= 0) {
+            throw new NoPriceException("The product has no stock so it's not priceable");
         }
-        System.out.println("The product has a valid price");
+        LOGGER.info("The product has a valid price");
     }
 
     public void validateBranch() throws InvalidBranchException{
         if (productBranch == null){
             throw new InvalidBranchException("Invalid branch");
         }
-        System.out.println("The product exist on a valid branch");
+        LOGGER.info("The product exist on a valid branch");
     }
 }
+
+

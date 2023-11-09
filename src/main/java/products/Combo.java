@@ -1,10 +1,14 @@
 package main.java.products;
 
-import main.Supermarket;
+import main.java.Supermarket;
+import main.java.staff.SupervisorEmployee;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 public class Combo extends Supermarket {
+    private static final Logger LOGGER = LogManager.getLogger(Combo.class);
 
 
     private AppleProduct appleProduct;
@@ -38,7 +42,7 @@ public class Combo extends Supermarket {
     public void printInfo(){
         super.printInfo();
         //Additional info about the combo
-        System.out.println("This combo has: " + appleProduct.getNameProduct() + " " + cleaningProduct.getNameProduct() + " " + meatProduct.getNameProduct() + " " + cerealProduct.getNameProduct());
+        LOGGER.info("This combo has: " + appleProduct.getNameProduct() + " " + cleaningProduct.getNameProduct() + " " + meatProduct.getNameProduct() + " " + cerealProduct.getNameProduct());
     }
 
     // Getter and setter of productID

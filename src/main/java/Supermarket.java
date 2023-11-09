@@ -1,9 +1,12 @@
 package main.java;
 
-import main.products.Combo;
-import main.staff.Employees;
+import main.java.products.Combo;
+import main.java.staff.Employees;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Supermarket {
+    private static final Logger LOGGER = LogManager.getLogger(Supermarket.class);
     private String name;
     private String location;
 
@@ -29,7 +32,7 @@ public class Supermarket {
 
     //Method to print the class information
     public void printInfo(){
-        System.out.println("The name of the supermarket is " + name + " " + "The location is " + location);
+        LOGGER.info("The name of the supermarket is " + name + " " + "The location is " + location);
     }
 
 
