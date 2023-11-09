@@ -1,8 +1,9 @@
 package main.staff;
 
-import main.interfaces.SupervisorTasks;
 
-public class SupervisorEmployee extends Person implements SupervisorTasks {
+import main.interfaces.Printeable;
+
+public class SupervisorEmployee extends Person implements Printeable {
     // Default constructor
     public SupervisorEmployee(){}
 
@@ -21,7 +22,7 @@ public class SupervisorEmployee extends Person implements SupervisorTasks {
 
     // Using the interface
     @Override
-    public void superviseTeam(){
-        System.out.println("Supervising team");
+    public void printDetails(){
+        System.out.println("Name: " + firstName + "\n" + "Last name: " + lastName + "\n" + "Age: " + personAge);
     }
 }

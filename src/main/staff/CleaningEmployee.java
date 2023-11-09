@@ -1,8 +1,8 @@
 package main.staff;
 
-import main.interfaces.CleaningTasks;
+import main.interfaces.Printeable;
 
-public class CleaningEmployee extends Person implements CleaningTasks {
+public class CleaningEmployee extends Person implements Printeable {
     // Default constructor
     public CleaningEmployee(){}
 
@@ -22,7 +22,7 @@ public class CleaningEmployee extends Person implements CleaningTasks {
 
     // Using the interface
     @Override
-    public void cleanWorkspace(){
-        System.out.println("Cleaning");
+    public void printDetails(){
+        System.out.println("Name: " + firstName + "\n" + "Last name: " + lastName + "\n" + "Age: " + personAge);
     }
 }

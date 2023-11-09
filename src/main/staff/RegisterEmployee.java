@@ -1,8 +1,9 @@
 package main.staff;
 
-import main.interfaces.RegisterTasks;
+import main.interfaces.Printeable;
+import main.interfaces.Registrable;
 
-public class RegisterEmployee extends Person implements RegisterTasks {
+public class RegisterEmployee extends Person implements Printeable {
     // Default constructor
     public RegisterEmployee(){}
 
@@ -22,7 +23,7 @@ public class RegisterEmployee extends Person implements RegisterTasks {
 
     // Using the interface
     @Override
-    public void registerSales(){
-        System.out.println("attending the register");
+    public void printDetails(){
+        System.out.println("Name: " + firstName + "\n" + "Last name: " + lastName + "\n" + "Age: " + personAge);
     }
 }

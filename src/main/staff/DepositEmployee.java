@@ -1,8 +1,9 @@
 package main.staff;
 
-import main.interfaces.DepositTasks;
+import main.interfaces.Printeable;
+import main.interfaces.Stockeable;
 
-public class DepositEmployee extends Person implements DepositTasks {
+public class DepositEmployee extends Person implements Printeable {
 
     // Default constructor
     public DepositEmployee(){}
@@ -22,8 +23,8 @@ public class DepositEmployee extends Person implements DepositTasks {
 
     // Using the interface
     @Override
-    public void manageMaterials(){
-        System.out.println("Managing merchandise");
+    public void printDetails(){
+        System.out.println("Name: " + firstName + "\n" + "Last name: " + lastName + "\n" + "Age: " + personAge);
     }
 
 
