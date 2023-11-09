@@ -18,10 +18,10 @@ public class Combo extends Supermarket {
     public Combo(){
         this.comboID = 0;
         this.comboName = "Default";
-        this.cerealProduct = new CerealProduct("Default", 0, 0, "Default", null);
-        this.cleaningProduct = new CleaningProduct("Default", 0, 0, "Default", null);
-        this.appleProduct = new AppleProduct("Default", 0, 0, "Default", null);
-        this.meatProduct = new MeatProduct("Default", 0, 0, "Default", null);
+        this.cerealProduct = new CerealProduct("Default", 0, 0, "Default", null, 0);
+        this.cleaningProduct = new CleaningProduct("Default", 0, 0, "Default", null, 0);
+        this.appleProduct = new AppleProduct("Default", 0, 0, "Default", null, 0);
+        this.meatProduct = new MeatProduct("Default", 0, 0, "Default", null, 0);
     }
 
     // Constructor for the class
