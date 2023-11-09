@@ -25,8 +25,7 @@ public class Combo extends Supermarket {
     }
 
     // Constructor for the class
-    public Combo(String name, String location, String comboName, Integer comboID, MeatProduct meatProduct, CerealProduct cerealProduct, AppleProduct appleProduct, CleaningProduct cleaningProduct){
-        super(name, location);
+    public Combo(String comboName, Integer comboID, MeatProduct meatProduct, CerealProduct cerealProduct, AppleProduct appleProduct, CleaningProduct cleaningProduct){
         this.comboID = comboID;
         this.comboName = comboName;
         this.cerealProduct = cerealProduct;
@@ -85,13 +84,13 @@ public class Combo extends Supermarket {
 
     @Override
     public String toString() {
-        return "Combo{" +
-                "appleProduct=" + appleProduct +
-                ", cleaningProduct=" + cleaningProduct +
-                ", meatProduct=" + meatProduct +
-                ", cerealProduct=" + cerealProduct +
-                ", comboID=" + comboID +
-                ", comboName='" + comboName + '\'' +
+        return "Combo{" + '\n' +
+                "appleProduct: " + appleProduct + '\n' +
+                "cleaningProduct: " + cleaningProduct + '\n' +
+                "meatProduct: " + meatProduct + '\n' +
+                "cerealProduct: " + cerealProduct + '\n' +
+                "comboID: " + comboID + '\n' +
+                "comboName: " + comboName +
                 '}';
     }
 }
