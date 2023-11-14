@@ -1,11 +1,10 @@
 package main.java.products;
 
 import main.java.Supermarket;
-import main.java.staff.SupervisorEmployee;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Objects;
+import java.util.*;
 
 public class Combo extends Supermarket {
     private static final Logger LOGGER = LogManager.getLogger(Combo.class);
@@ -15,13 +14,12 @@ public class Combo extends Supermarket {
     private CleaningProduct cleaningProduct;
     private MeatProduct meatProduct;
     private CerealProduct cerealProduct;
-    private Integer comboID;
-    private String comboName;
+    private HashMap<Integer, String> comboDetails = new HashMap<>();
+
+    private static Integer counter = 0;
 
     // Default constructor just in case
     public Combo(){
-        this.comboID = 0;
-        this.comboName = "Default";
         this.cerealProduct = new CerealProduct("Default", 0, 0, "Default", null, 0);
         this.cleaningProduct = new CleaningProduct("Default", 0, 0, "Default", null, 0);
         this.appleProduct = new AppleProduct("Default", 0, 0, "Default", null, 0);
@@ -29,14 +27,15 @@ public class Combo extends Supermarket {
     }
 
     // Constructor for the class
-    public Combo(String comboName, Integer comboID, MeatProduct meatProduct, CerealProduct cerealProduct, AppleProduct appleProduct, CleaningProduct cleaningProduct){
-        this.comboID = comboID;
-        this.comboName = comboName;
-        this.cerealProduct = cerealProduct;
-        this.cleaningProduct = cleaningProduct;
+    public Combo(String name, MeatProduct meatProduct, CerealProduct cerealProduct, AppleProduct appleProduct, CleaningProduct cleaningProduct){
+        counter++;
+        this.comboDetails.put(counter, name);
         this.meatProduct = meatProduct;
+        this.cerealProduct = cerealProduct;
         this.appleProduct = appleProduct;
+        this.cleaningProduct = cleaningProduct;
     }
+
 
     @Override
     public void printInfo(){
@@ -45,13 +44,33 @@ public class Combo extends Supermarket {
         LOGGER.info("This combo has: " + appleProduct.getNameProduct() + " " + cleaningProduct.getNameProduct() + " " + meatProduct.getNameProduct() + " " + cerealProduct.getNameProduct());
     }
 
-    // Getter and setter of productID
-    public Integer getComboID() {return comboID;}
-    public void setComboID(Integer comboID) {this.comboID = comboID;}
+    public static List<Product> createCombo(String name,Product... product){
+        return new ArrayList<>(Arrays.asList(product));
+    };
 
-    //Getter and setter of sectorProduct
-    public String getComboName() {return comboName;}
-    public void setComboName(String comboName) {this.comboName = comboName;}
+    public static LinkedList<Combo> createComboList(String name,Combo... combo){
+        return new LinkedList<>(Arrays.asList(combo));
+    };
+
+    // Getter and setter of comboDetails
+    public HashMap<Integer, String> getComboDetails() {return comboDetails;}
+    public void setComboDetails(HashMap<Integer, String> comboDetails) {this.comboDetails = comboDetails;}
+
+    public int getId(String name) {
+        // Search ID associated with the name
+        for (HashMap.Entry<Integer, String> entry : comboDetails.entrySet()) {
+            if (entry.getValue().equals(name)) {
+                return entry.getKey();
+            }
+        }
+        // return -1 if the name doesn't exist on the map
+        return -1;
+    }
+
+    public String getName(int id) {
+        // Obtains the name with the associate Id
+        return comboDetails.get(id);
+    }
 
 
     //Getter and setter of Apple
@@ -78,12 +97,12 @@ public class Combo extends Supermarket {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Combo combo)) return false;
-        return Objects.equals(getAppleProduct(), combo.getAppleProduct()) && Objects.equals(getCleaningProduct(), combo.getCleaningProduct()) && Objects.equals(getMeatProduct(), combo.getMeatProduct()) && Objects.equals(getCerealProduct(), combo.getCerealProduct()) && Objects.equals(getComboID(), combo.getComboID()) && Objects.equals(getComboName(), combo.getComboName());
+        return Objects.equals(getAppleProduct(), combo.getAppleProduct()) && Objects.equals(getCleaningProduct(), combo.getCleaningProduct()) && Objects.equals(getMeatProduct(), combo.getMeatProduct()) && Objects.equals(getCerealProduct(), combo.getCerealProduct()) && Objects.equals(getComboDetails(), combo.getComboDetails());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getAppleProduct(), getCleaningProduct(), getMeatProduct(), getCerealProduct(), getComboID(), getComboName());
+        return Objects.hash(getAppleProduct(), getCleaningProduct(), getMeatProduct(), getCerealProduct(), getComboDetails());
     }
 
     @Override
@@ -93,8 +112,8 @@ public class Combo extends Supermarket {
                 "cleaningProduct: " + cleaningProduct + '\n' +
                 "meatProduct: " + meatProduct + '\n' +
                 "cerealProduct: " + cerealProduct + '\n' +
-                "comboID: " + comboID + '\n' +
-                "comboName: " + comboName +
+                "comboId: " + comboDetails.keySet() + '\n' +
+                "comboName: " + comboDetails.values() + '\n' +
                 '}';
     }
 }
