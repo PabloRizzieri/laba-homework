@@ -2,8 +2,13 @@ package main.java.staff;
 
 import main.java.Supermarket;
 import main.java.interfaces.Printeable;
+import main.java.products.Product;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Employees extends Supermarket implements Printeable {
     private static final Logger LOGGER = LogManager.getLogger(Employees.class);
@@ -65,6 +70,11 @@ public class Employees extends Supermarket implements Printeable {
     public SupervisorEmployee getSupervisorEmployee() {return supervisorEmployee;}
     public void setSupervisorEmployee(SupervisorEmployee supervisorEmployee) {this.supervisorEmployee = supervisorEmployee;}
 
+
+
+    public static Set<Person> createStaff(Person... person){
+        return new HashSet<>(Arrays.asList(person));
+    };
 
     @Override
     public void printDetails() {
