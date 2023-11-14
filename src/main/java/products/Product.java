@@ -3,6 +3,7 @@ package main.java.products;
 import main.java.exceptions.InvalidBranchException;
 import main.java.exceptions.InvalidIDException;
 import main.java.exceptions.NoPriceException;
+import main.java.exceptions.NoStockException;
 import main.java.interfaces.Priceable;
 import main.java.interfaces.Stockeable;
 import org.apache.logging.log4j.LogManager;
@@ -131,11 +132,11 @@ public abstract class Product implements Stockeable, Priceable {
         LOGGER.info("Product ID valid");
     }
 
-    public void validatePrice() throws NoPriceException{
+    public void validatePrice() throws NoPriceException, NoStockException{
         if (productPrice <= 0){
             throw new NoPriceException("The product has no price");
         } else if (stock <= 0) {
-            throw new NoPriceException("The product has no stock so it's not priceable");
+            throw new NoStockException("The product has no stock so it's not priceable");
         }
         LOGGER.info("The product has a valid price");
     }
