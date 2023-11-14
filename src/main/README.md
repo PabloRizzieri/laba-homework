@@ -36,3 +36,7 @@ Requirements:
 - Handle exceptions in 2 ways
 - Use try-catch with resources
 - Log messages to the console, file.
+
+# November 09 - Collections 
+- Add 5 collections to the hierarchy.
+- Create custom LinkedList with generic
