@@ -40,3 +40,9 @@ Requirements:
 # November 09 - Collections 
 - Add 5 collections to the hierarchy.
 - Create custom LinkedList with generic
+
+# November 14 - Maven
+- Move all projects to Maven.
+- Build jar file and deploy to the local repository.
+- Add 2 Plugins.
+- Run mvn for different phases from the Maven lifecycle. Check the result.
