@@ -1,15 +1,17 @@
-package main.java.products;
+package products;
 
-import main.java.exceptions.InvalidBranchException;
-import main.java.exceptions.InvalidIDException;
-import main.java.exceptions.NoPriceException;
-import main.java.exceptions.NoStockException;
-import main.java.interfaces.Priceable;
-import main.java.interfaces.Stockeable;
+import java.util.Objects;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Objects;
+import exceptions.InvalidBranchException;
+import exceptions.InvalidIDException;
+import exceptions.NoPriceException;
+import exceptions.NoStockException;
+import interfaces.Priceable;
+import interfaces.Stockeable;
+
 
 public abstract class Product implements Stockeable, Priceable {
 
@@ -86,7 +88,7 @@ public abstract class Product implements Stockeable, Priceable {
     void printProductInfo(){};
 
 
-    // Creating the hash and equals override for using it on the child classes (in this example makes the products that has the same ID and price get the same hash)
+    // Creating the hash and equals override for using it on the child classes (in this example makes the com.solvd.products that has the same ID and price get the same hash)
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -132,7 +134,7 @@ public abstract class Product implements Stockeable, Priceable {
         LOGGER.info("Product ID valid");
     }
 
-    public void validatePrice() throws NoPriceException, NoStockException{
+    public void validatePrice() throws NoPriceException, NoStockException {
         if (productPrice <= 0){
             throw new NoPriceException("The product has no price");
         } else if (stock <= 0) {
@@ -141,12 +143,10 @@ public abstract class Product implements Stockeable, Priceable {
         LOGGER.info("The product has a valid price");
     }
 
-    public void validateBranch() throws InvalidBranchException{
+    public void validateBranch() throws InvalidBranchException {
         if (productBranch == null){
             throw new InvalidBranchException("Invalid branch");
         }
         LOGGER.info("The product exist on a valid branch");
     }
 }
-
-

@@ -1,11 +1,13 @@
-package main.java.staff;
+package staff;
 
-import main.java.exceptions.InvalidPersonNameException;
-import main.java.exceptions.NoAgeException;
+
+import java.util.Objects;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Objects;
+import exceptions.InvalidPersonNameException;
+import exceptions.NoAgeException;
 
 public abstract class Person {
     private static final Logger LOGGER = LogManager.getLogger(Person.class);
@@ -68,14 +70,14 @@ public abstract class Person {
                 "lastName: '" + lastName + "}";
     }
 
-    public void checkPersonAge() throws NoAgeException{
+    public void checkPersonAge() throws NoAgeException {
         if (personAge < 0){
             throw new NoAgeException("The person has an invalid age");
         }
         LOGGER.info("The person has the age: " + personAge);
     }
 
-    public void checkPersonName() throws InvalidPersonNameException{
+    public void checkPersonName() throws InvalidPersonNameException {
         if (firstName == null || lastName == null){
             throw new InvalidPersonNameException("The person has an invalid name it doesn't have first or last name");
         }

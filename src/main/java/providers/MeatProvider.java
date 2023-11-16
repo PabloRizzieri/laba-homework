@@ -1,4 +1,4 @@
-package main.java.providers;
+package providers;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

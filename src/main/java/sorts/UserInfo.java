@@ -1,4 +1,4 @@
-package main.java.sorts;
+package sorts;
 
 public class UserInfo {
     public static void main(String[] args) {

@@ -1,10 +1,14 @@
-package main.java.products;
+package products;
 
-import main.java.Supermarket;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.*;
 
 public class Combo extends Supermarket {
     private static final Logger LOGGER = LogManager.getLogger(Combo.class);

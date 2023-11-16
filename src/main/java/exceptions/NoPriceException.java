@@ -1,4 +1,4 @@
-package main.java.exceptions;
+package exceptions;
 
 public class NoPriceException extends Exception{
     public NoPriceException(String message){

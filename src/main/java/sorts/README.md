@@ -11,4 +11,4 @@ Implement a sorting algorithm. You can choose from the following list:
 - Merge sort
 - Quicksort
 
-Demonstrate the implementation of the chosen sorting algorithm and ensure that it effectively sorts the provided data. Include comments to explain the logic and functionality of the algorithm.
+Demonstrate the implementation of the chosen sorting algorithm and ensure that it effectively com.solvd.sorts the provided data. Include comments to explain the logic and functionality of the algorithm.

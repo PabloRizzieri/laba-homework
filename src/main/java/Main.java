@@ -1,14 +1,34 @@
-package main.java;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeMap;
 
-import main.java.exceptions.*;
-import main.java.products.*;
-import main.java.providers.*;
-import main.java.staff.*;
+import custom.CustomLinkedList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.*;
-
+import exceptions.InvalidBranchException;
+import exceptions.InvalidIDException;
+import exceptions.InvalidPersonNameException;
+import exceptions.NoAgeException;
+import exceptions.NoPriceException;
+import exceptions.NoStockException;
+import products.AppleProduct;
+import products.CerealProduct;
+import products.CleaningProduct;
+import products.Combo;
+import products.MeatProduct;
+import products.Product;
+import products.Supermarket;
+import providers.FruitProvider;
+import providers.MeatProvider;
+import providers.Provider;
+import staff.CleaningEmployee;
+import staff.DepositEmployee;
+import staff.Employees;
+import staff.Person;
+import staff.RegisterEmployee;
+import staff.SupervisorEmployee;
 
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
@@ -28,7 +48,7 @@ public class Main {
         MeatProduct meatProduct = new MeatProduct("Fish", 99, 1542, null, true, -5);
         CleaningProduct cleaningProduct = new CleaningProduct("Soap", 34, 781, "Cleaning", false, 10);
 
-        //Creating instances of the subclasses that Supermarket has
+        //Creating instances of the subclasses that products.Supermarket has
         Set<Person> staff2 = Employees.createStaff(registerEmployee, supervisorEmployee, depositEmployee, cleaningEmployee);
         Employees staff = new Employees("Monday to Friday", "Vea","Buenos Aires", cleaningEmployee, depositEmployee, registerEmployee, supervisorEmployee);
         Combo actualCombo = new Combo("Variadito", meatProduct, cerealProduct, appleProduct1, cleaningProduct);
@@ -36,7 +56,7 @@ public class Main {
         List<Product> listCombo = Combo.createCombo("Variadito2", meatProduct, cerealProduct, appleProduct2, cleaningProduct);
 
 
-        // Testing new usage and creation of Supermarket
+        // Testing new usage and creation of products.Supermarket
         Supermarket supermarket = new Supermarket("VEA", "RESISTENCIA", staff, actualCombo);
         LOGGER.info("The PRODUCTS OF THE MARKET ARE: " + supermarket.getStaff());
 
@@ -63,7 +83,7 @@ public class Main {
 
         // Testing the hash-equal method override in the Product and Person class
         boolean areEqualProducts = appleProduct1.equals(appleProduct2);
-        LOGGER.info("Are the apple products equal? " + (areEqualProducts ? "Yes" : "no"));
+        LOGGER.info("Are the apple com.solvd.products equal? " + (areEqualProducts ? "Yes" : "no"));
 
         boolean areEqualPerson = registerEmployee.equals(depositEmployee);
         LOGGER.info("They are the same person? " + (areEqualPerson ? "Yes" : "No"));
@@ -101,6 +121,15 @@ public class Main {
 
         // Testing the new method on the Combo class to create a LinkedList with all the combos provided on the parameters
         LinkedList<Combo> allCombos = Combo.createComboList("Variaditos", actualCombo1, actualCombo);
+
+        // Testing custom linked list
+        CustomLinkedList<Combo> comboTest = new CustomLinkedList<>();
+        comboTest.addToBeginning(actualCombo);
+        comboTest.addToBeginning(actualCombo1);
+        LOGGER.info("ACAAAAAAAAAAAA");
+        comboTest.printList();
+
+
         LOGGER.info(allCombos.get(0).getComboDetails());
 
         //Testing the staff2 created with the createStaff method
@@ -149,16 +178,13 @@ public class Main {
         }
 
 
-        // Using the second way to handle exceptions
+        // Using the second way to handle com.solvd.exceptions
         checkValidAge(cleaningEmployee);
         checkValidName(registerEmployee);
 
-
-
-
     }
 
-    /// Creating methods to handle exceptions with the throws clause
+    /// Creating methods to handle com.solvd.exceptions with the throws clause
     private static void checkValidAge(Person person){
         try {
             person.checkPersonAge();

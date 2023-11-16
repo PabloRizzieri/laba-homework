@@ -1,14 +1,15 @@
-package main.java.staff;
+package staff;
 
-import main.java.Supermarket;
-import main.java.interfaces.Printeable;
-import main.java.products.Product;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import interfaces.Printeable;
+import products.Supermarket;
 
 public class Employees extends Supermarket implements Printeable {
     private static final Logger LOGGER = LogManager.getLogger(Employees.class);
@@ -40,8 +41,8 @@ public class Employees extends Supermarket implements Printeable {
     @Override
     public void printInfo(){
         super.printInfo();
-        // Info about the staff of the supermarket
-        LOGGER.info("The actual staff is " + supervisorEmployee.getFirstName() + " " + registerEmployee.getFirstName() + " " + depositEmployee.getFirstName() + " " + cleaningEmployee.getFirstName());
+        // Info about the com.solvd.staff of the supermarket
+        LOGGER.info("The actual com.solvd.staff is " + supervisorEmployee.getFirstName() + " " + registerEmployee.getFirstName() + " " + depositEmployee.getFirstName() + " " + cleaningEmployee.getFirstName());
     }
 
 

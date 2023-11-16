@@ -1,8 +1,10 @@
-package main.java.staff;
+package staff;
 
-import main.java.interfaces.Printeable;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import interfaces.Printeable;
 
 public class RegisterEmployee extends Person implements Printeable {
     private static final Logger LOGGER = LogManager.getLogger(RegisterEmployee.class);

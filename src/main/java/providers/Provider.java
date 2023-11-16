@@ -1,12 +1,10 @@
-package main.java.providers;
+package providers;
 
+
+import java.util.TreeMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.Arrays;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class Provider {
     private static final Logger LOGGER = LogManager.getLogger(Provider.class);
