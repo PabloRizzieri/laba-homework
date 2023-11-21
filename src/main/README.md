@@ -46,3 +46,8 @@ Requirements:
 - Build jar file and deploy to the local repository.
 - Add 2 Plugins.
 - Run mvn for different phases from the Maven lifecycle. Check the result.
+
+# November 16 - Git/GitHub
+- Generate a conflict between 2 different branches
+- Make a Pull/Request with branches
+- Make a Pull/Request with forks
