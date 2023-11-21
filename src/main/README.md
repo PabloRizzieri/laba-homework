@@ -52,4 +52,4 @@ Requirements:
 - Make a Pull/Request with branches
 - Make a Pull/Request with forks
 
-# CONFLICT / ERROR
+# CONFLICT
