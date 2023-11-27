@@ -1,4 +1,4 @@
-package sorts;
+package extras.printApp;
 
 public class UserInfo {
     public static void main(String[] args) {

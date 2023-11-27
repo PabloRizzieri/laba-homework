@@ -12,3 +12,8 @@ Implement a sorting algorithm. You can choose from the following list:
 - Quicksort
 
 Demonstrate the implementation of the chosen sorting algorithm and ensure that it effectively com.solvd.sorts the provided data. Include comments to explain the logic and functionality of the algorithm.
+
+## November 21 - String utils and File utils
+
+- Read text from the file and calculate the numbers of the unique words. Write the result to the file. The main requirement is: using StringUtils and FileUtils to implement it with minimum lines of code.
+  to leave only letters in your text you can use your_string.replaceAll("[^A-Za-z ]", "")

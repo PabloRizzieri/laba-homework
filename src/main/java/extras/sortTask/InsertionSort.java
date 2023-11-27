@@ -1,4 +1,4 @@
-package main.java.sorts;
+package extras.sortTask;
 
 public class InsertionSort {
     public static void main(String[] args) {
