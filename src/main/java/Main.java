@@ -1,7 +1,4 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 import custom.CustomLinkedList;
 import org.apache.logging.log4j.LogManager;
@@ -39,7 +36,7 @@ public class Main {
         System.setProperty("log4j.configurationFile", "src/resources/log4j2.properties");
         // Creating instances of every class
         CleaningEmployee cleaningEmployee = new CleaningEmployee("Agustin", "Rizzieri", -2);
-        RegisterEmployee registerEmployee = new RegisterEmployee("Pablo", null, 22);
+        RegisterEmployee registerEmployee = new RegisterEmployee("Pablo", "Rodriguez", 22);
         DepositEmployee depositEmployee = new DepositEmployee("Matias", "Morales", 25);
         SupervisorEmployee supervisorEmployee = new SupervisorEmployee("Micaela", "Gonzalez", 42);
         AppleProduct appleProduct1 = new AppleProduct("Apple Pie", 25, 25, "Bakery", false, 25);
@@ -51,8 +48,9 @@ public class Main {
         //Creating instances of the subclasses that products.Supermarket has
         Set<Person> staff2 = Employees.createStaff(registerEmployee, supervisorEmployee, depositEmployee, cleaningEmployee);
         Employees staff = new Employees("Monday to Friday", "Vea","Buenos Aires", cleaningEmployee, depositEmployee, registerEmployee, supervisorEmployee);
-        Combo actualCombo = new Combo("Variadito", meatProduct, cerealProduct, appleProduct1, cleaningProduct);
-        Combo actualCombo1 = new Combo("Variadito1", meatProduct, cerealProduct, appleProduct1, cleaningProduct);
+        Combo actualCombo = new Combo("Healthy", meatProduct, cerealProduct, appleProduct1, cleaningProduct);
+        Combo actualCombo1 = new Combo("Unhealthy", meatProduct, cerealProduct, appleProduct1, cleaningProduct);
+        Combo actualCombo2 = new Combo("Energic", meatProduct, cerealProduct, appleProduct2, cleaningProduct);
         List<Product> listCombo = Combo.createCombo("Variadito2", meatProduct, cerealProduct, appleProduct2, cleaningProduct);
 
 
@@ -104,14 +102,14 @@ public class Main {
 
 
         // Testing Providers method to create a TreeMap and then printing the values of the new Treemap
-        MeatProvider meatProvider = new MeatProvider("Carnes San Carlos");
-        FruitProvider fruitProvider = new FruitProvider("Frutas Martinez");
+        MeatProvider meatProvider = new MeatProvider("Meat San Carlos");
+        FruitProvider fruitProvider = new FruitProvider("Fruits Martinez");
         TreeMap<Integer, Provider> providers = Provider.createProvidersCollection(meatProvider, fruitProvider);
         providers.values().forEach(provider -> LOGGER.info("Provider name: " + provider.getProviderName()));
 
         // Testing new Combo methods to get the details of the combo and create a LinkedList of combos
         LOGGER.info(actualCombo.getName(1));
-        LOGGER.info(actualCombo1.getId("Variadito1"));
+        LOGGER.info(actualCombo1.getId("Healthy"));
         LOGGER.info(actualCombo1.getName(2));
         LOGGER.info(actualCombo.toString());
         LOGGER.info(listCombo.get(1));
@@ -120,14 +118,31 @@ public class Main {
         LOGGER.info(actualCombo1.getComboDetails().values() + " " + actualCombo1.getComboDetails().keySet());
 
         // Testing the new method on the Combo class to create a LinkedList with all the combos provided on the parameters
-        LinkedList<Combo> allCombos = Combo.createComboList("Variaditos", actualCombo1, actualCombo);
+        LinkedList<Combo> allCombos = Combo.createComboList("Variety", actualCombo1, actualCombo);
 
         // Testing custom linked list
         CustomLinkedList<Combo> comboTest = new CustomLinkedList<>();
-        comboTest.addToBeginning(actualCombo);
         comboTest.addToBeginning(actualCombo1);
-        LOGGER.info("ACAAAAAAAAAAAA");
-        comboTest.printList();
+        comboTest.addToBeginning(actualCombo);
+        comboTest.addToBeginning(actualCombo2);
+        comboTest.size();
+        comboTest.isEmpty();
+
+
+        //Testing the logic under the sortAlphabetically method
+        CustomLinkedList<Person> personTest = new CustomLinkedList<>();
+        personTest.addToBeginning(depositEmployee);
+        personTest.addToBeginning(cleaningEmployee);
+        personTest.addToBeginning(registerEmployee);
+
+        LOGGER.info("HERE TEST WITHOUT THE SORT");
+
+        personTest.printList();
+        personTest.sort(Comparator.comparing(Person::getFirstName));
+
+        LOGGER.info("TEST WITH THE SORT");
+        personTest.printList();
+
 
 
         LOGGER.info(allCombos.get(0).getComboDetails());
@@ -178,13 +193,13 @@ public class Main {
         }
 
 
-        // Using the second way to handle com.solvd.exceptions
+        // Using the second way to handle exceptions
         checkValidAge(cleaningEmployee);
         checkValidName(registerEmployee);
 
     }
 
-    /// Creating methods to handle com.solvd.exceptions with the throws clause
+    /// Creating methods to handle exceptions with the throws clause
     private static void checkValidAge(Person person){
         try {
             person.checkPersonAge();
