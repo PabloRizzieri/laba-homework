@@ -88,7 +88,7 @@ public abstract class Product implements Stockeable, Priceable {
     void printProductInfo(){};
 
 
-    // Creating the hash and equals override for using it on the child classes (in this example makes the com.solvd.products that has the same ID and price get the same hash)
+    // Creating the hash and equals override for using it on the child classes (in this example makes the products that has the same ID and price get the same hash)
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

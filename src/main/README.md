@@ -46,3 +46,8 @@ Requirements:
 - Build jar file and deploy to the local repository.
 - Add 2 Plugins.
 - Run mvn for different phases from the Maven lifecycle. Check the result.
+
+# November 28 - Lambdas and Enums
+- Use at least 5 lambda functions from the java.util.function package.
+- Create 3 custom Lambda functions with generics.
+- Create 5 complex Enums(with fields, methods, blocks).
