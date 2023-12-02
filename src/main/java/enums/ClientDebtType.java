@@ -1,22 +1,23 @@
 package enums;
 
 public enum ClientDebtType {
-    CREDIT_CARD_DEBT("Credit Card Debt", 0.25),
-    LOAN_DEBT("Loan Debt", 0.16),
-    OVERDRAFT("OVERDRAFT", 0.35);
+    CREDIT_CARD_DEBT("Credit Card Debt", CostsRatesAndFees.INTEREST_LEVEL_TWO),
+    LOAN_DEBT("Loan Debt", CostsRatesAndFees.INTEREST_LEVEL_THREE),
+    OVERDRAFT("OVERDRAFT", CostsRatesAndFees.INTEREST_LEVEL_FOUR);
 
-    private final String description;
-    private final double interestRate;
+    private final String DESCRIPTION;
+    private final CostsRatesAndFees interestRate;
 
-    ClientDebtType(String description, double interestRate){
-        this.description = description;
+    ClientDebtType(String description, CostsRatesAndFees interestRate){
+        this.DESCRIPTION = description;
         this.interestRate = interestRate;
     }
 
-    public String getDescription() { return description; }
-    public double getInterestRate() { return interestRate; }
+    public String getDESCRIPTION() { return DESCRIPTION; }
+    public CostsRatesAndFees getInterestRate() { return interestRate; }
 
-    public double calculateInterest(double debtAmount){
-        return debtAmount * interestRate;
+    public double calculateInterest(double debtAmount, CostsRatesAndFees interestRate){
+        double rate = interestRate.getINTEREST_RATE();
+        return debtAmount * rate;
     }
 }

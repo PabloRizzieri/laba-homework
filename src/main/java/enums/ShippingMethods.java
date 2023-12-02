@@ -1,25 +1,25 @@
 package enums;
 
 public enum ShippingMethods {
-    STANDARD("Standard Delivery", 9.99),
-    EXPRESS("Express Shipping", 18.99),
-    SAME_DAY("Same-Day Delivery", 25.99);
+    STANDARD("Standard Delivery", CostsRatesAndFees.COST_LEVEL_ONE),
+    EXPRESS("Express Shipping", CostsRatesAndFees.COST_LEVEL_TWO),
+    SAME_DAY("Same-Day Delivery", CostsRatesAndFees.COST_LEVEL_FOUR);
 
-    private final String displayName;
-    private final double cost;
-    private final String trackingNumber;
+    private final String DISPLAY_NAME;
+    private final CostsRatesAndFees COST;
+    private final String TRACKING_NUMBER;
 
-    ShippingMethods(String displayName, double cost){
-        this.displayName = displayName;
-        this.cost = cost;
-        this.trackingNumber = generateTrackingNumber();
+    ShippingMethods(String displayName, CostsRatesAndFees COST){
+        this.DISPLAY_NAME = displayName;
+        this.COST = COST;
+        this.TRACKING_NUMBER = generateTrackingNumber();
     }
 
-    public String getDisplayName(){return displayName;}
-    public double getCost(){return cost;}
-    public String getTrackingNumber(){return trackingNumber;}
+    public String getDISPLAY_NAME(){return DISPLAY_NAME;}
+    public CostsRatesAndFees getCOST(){return COST;}
+    public String getTRACKING_NUMBER(){return TRACKING_NUMBER;}
 
-    private String generateTrackingNumber(){
+    public String generateTrackingNumber(){
         return "TN" + hashCode();
     }
 }
