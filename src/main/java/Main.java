@@ -1,4 +1,6 @@
+import java.lang.reflect.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import custom.CustomLinkedList;
 import customLambdas.CustomLambdaOne;
@@ -167,6 +169,60 @@ public class Main {
         String transformedString = stringTransformer.transform("Hello World");
         System.out.println("Transformed String: " + transformedString);
 
+        // Streaming testing with terminal operation
+        staff2.stream()
+                .map(Person::getFirstName)
+                .forEach(System.out::println);
+
+        // Stream example with a non-terminal operation (filter)
+        staff2.stream()
+                .filter(person -> person.getPersonAge() > 18)
+                .map(Person::getLastName)
+                .forEach(System.out::println);
+
+
+        // Stream example with a terminal operation (collect)
+        List<String> lastNameOfTheOlderEmployee = staff2.stream()
+                .filter(person -> person.getPersonAge() > 30)
+                .map(Person::getLastName)
+                .collect(Collectors.toList());
+
+        System.out.println("Older employee " + lastNameOfTheOlderEmployee);
+
+        // Stream example with other list and using differents methods such as count and peek
+        long transformedProductsCount = listCombo.stream()
+                .map(product -> new AppleProduct(product.getNameProduct(), product.getProductID(), (int) (product.getProductPrice() * 1.2), product.getProductBranch(), product.getHasDiscount(), product.getStock()))
+                .peek(transformedProduct -> System.out.println("Transformed Product " + transformedProduct))
+                .count();
+
+        System.out.println("Number of transformed products " + transformedProductsCount);
+
+        // Stream example with a non-terminal operation (distinct)
+        List<Product> distinctProducts = listCombo.stream()
+                .distinct() // Non-terminal operation to remove duplicates based on equals/hashCode
+                .peek(product -> System.out.println("Distinct Product: " + product))
+                .toList(); // Terminal operation to collect into a new List
+
+        // Display the distinct products
+        System.out.println("\nDistinct Products:");
+        distinctProducts.forEach(System.out::println);
+
+        // Stream example with a terminal operation (sum)
+        double totalOriginalPrice = listCombo.stream()
+                .mapToDouble(Product::getProductPrice)// Extracting prices as doubles
+                .sum(); // Terminal operation to calculate the sum
+
+        // Display the total original price
+        System.out.println("\nTotal Combo Price: $" + totalOriginalPrice);
+
+        // Stream example with a TreeMap
+        List<String> transformedProviderNames = providers.entrySet().stream()
+                .map(entry -> entry.getKey() + " - " + entry.getValue().getProviderName())
+                .collect(Collectors.toList());
+
+        System.out.println("\nTransformed Provider Names: ");
+        transformedProviderNames.forEach(System.out::println);
+
 
         // Testing a loop for print specific data about the objects inside the HashSet
         for (Person employee : staff2) {
@@ -212,6 +268,60 @@ public class Main {
         // Using the second way to handle exceptions
         checkValidAge(cleaningEmployee);
         checkValidName(registerEmployee);
+
+        // Reflection testing
+        Class<?> appleProduct = AppleProduct.class;
+
+        // Extract information about fields
+        LOGGER.info("Fields: ");
+        Field[] fields = appleProduct.getDeclaredFields();
+        for (Field field : fields){
+            LOGGER.info("Name: " + field.getName());
+            LOGGER.info("Type" + field.getType());
+            LOGGER.info("Modifiers: " + Modifier.toString(field.getModifiers()));
+            System.out.println("Finish");
+        }
+
+        //Extract information about constructor
+        LOGGER.info("Constructors: ");
+        Constructor<?>[] constructors = appleProduct.getConstructors();
+        for (Constructor<?> constructor : constructors){
+            LOGGER.info("Name: " + constructor.getName());
+            LOGGER.info("Modifiers: " + Modifier.toString(constructor.getModifiers()));
+
+            //Extract info about the constructor parameters
+            Parameter[] parameters = constructor.getParameters();
+            LOGGER.info("Parameters: " + Arrays.toString(parameters));
+            System.out.println("Finish 2");
+        }
+
+        //Extract information about methods
+        Method[] methods = appleProduct.getMethods();
+        for (Method method : methods){
+            LOGGER.info("Name: " + method.getName());
+            LOGGER.info("Return type: " + method.getReturnType());
+            LOGGER.info("Modifiers: " + Modifier.toString(method.getModifiers()));
+
+            //Extract the method parameters
+            Parameter[] parameters = method.getParameters();
+            LOGGER.info("Method Parameters: " + Arrays.toString(parameters));
+            System.out.println("Finish 3");
+        }
+
+        // Creating an object and calling a method inside of it
+        try {
+            // Create an instance of MyClass using reflection
+            Object reflectAppleProduct = appleProduct.getDeclaredConstructor().newInstance();
+
+            // Get a method
+            Method print = appleProduct.getDeclaredMethod("mirrorMethod", String.class);
+
+            // Call the method on the created instance
+            print.invoke(reflectAppleProduct, "REFLECTION");
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
