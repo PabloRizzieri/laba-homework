@@ -31,4 +31,9 @@ public class AppleProduct extends Product {
         return (int) (productPrice * 1.2);
     }
 
+    //Method to use on the reflection
+    public void mirrorMethod(String message){
+        LOGGER.info("This is a mirror and says: " + message);
+    }
+
 }
