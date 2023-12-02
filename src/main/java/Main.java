@@ -1,6 +1,11 @@
 import java.util.*;
 
 import custom.CustomLinkedList;
+import customLambdas.CustomLambdaOne;
+import customLambdas.CustomLambdaThree;
+import customLambdas.CustomLambdaTwo;
+import enums.BrandsCategory;
+import enums.Suppliers;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -142,15 +147,26 @@ public class Main {
 
         LOGGER.info("TEST WITH THE SORT");
         personTest.printList();
-
-
-
         LOGGER.info(allCombos.get(0).getComboDetails());
 
         //Testing the staff2 created with the createStaff method
         LOGGER.info(staff2);
         LOGGER.info(staff2.contains("Rizzieri"));
         LOGGER.info(staff2.contains("Marianito"));
+
+
+        //Testing Custom Lambdas
+        CustomLambdaOne<Integer> printInteger = value -> System.out.println("Integer value: " + value);
+        printInteger.apply(42);
+
+        CustomLambdaTwo<Integer> intEqualityChecker = (valueOne, valueTwo) -> valueOne.equals(valueTwo);
+        boolean intResult = intEqualityChecker.areEqual(58,62);
+        System.out.println("Are integer equals? " + intResult);
+
+        CustomLambdaThree<String, String> stringTransformer = value -> value.replaceAll("", " ");
+        String transformedString = stringTransformer.transform("Hello World");
+        System.out.println("Transformed String: " + transformedString);
+
 
         // Testing a loop for print specific data about the objects inside the HashSet
         for (Person employee : staff2) {
